@@ -1,0 +1,7 @@
+<div
+  class="list-container"
+  *ngFor="let item of todolist; let i = index"
+  (click)="onClickRemoveBtn($event)"
+>
+  <app-todo-item [index]="i" [item]="item"></app-todo-item>
+</div>
