@@ -1,0 +1,8 @@
+<div class="todo-container">
+  <h2>TO DO LIST FOR TEST</h2>
+  <app-todo-form (sendItemContent)="addTodo($event)"></app-todo-form>
+  <app-todo-list
+    (sendItemIdx)="removeTodo($event)"
+    [todolist]="todo"
+  ></app-todo-list>
+</div>
