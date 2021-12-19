@@ -1,0 +1,27 @@
+<form
+  class="todo-form-container"
+  [formGroup]="todoForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="todo-form">
+    <input
+      class="todo-input"
+      formControlName="content"
+      placeholder="Please enter content..."
+      type="text"
+    />
+
+    <button class="todo-button" type="submit" [disabled]="!todoForm.valid">
+      Submit
+    </button>
+  </div>
+  <!-- <div
+    *ngIf="content.invalid && (content.dirty || content.touched)"
+    class="alert alert-danger"
+  >
+    <div *ngIf="content.errors?.['required']">content is required.</div>
+  </div> -->
+  <div>
+    <p>Form Status : {{ todoForm.status }}</p>
+  </div>
+</form>
