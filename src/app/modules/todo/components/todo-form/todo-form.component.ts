@@ -6,17 +6,13 @@ import {
   Output,
   EventEmitter,
 } from "@angular/core";
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  Validators,
-} from "@angular/forms";
+import { AbstractControl, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-todo-form",
   templateUrl: "./todo-form.component.html",
   styleUrls: ["./todo-form.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoFormComponent implements OnInit, DoCheck {
   /**
@@ -43,15 +39,16 @@ export class TodoFormComponent implements OnInit, DoCheck {
     // this.todoForm.get("content") === this.todoForm.controls["content"]
   }
 
+  /**
+   * onPush로 처리해도 CD발생시 해당 컴포넌트만이 아닌 전체가 CD 된다.
+   */
   onSubmit() {
     this.sendItemContent.emit(this.content.value);
     this.todoForm.reset();
   }
-
-  /**
-   * 에러처리
-   * 폼 이벤트
-   * 부모로 상태 전달
-   * cd check
-   */
 }
+/**
+ * input 이벤트가 발생해서 fb의 formcontorl이 바뀌어 로직들의 재할당이 일어날거라 생각하겠지만 아니다!
+ * CD만 수행됩니다. 리렌더링이 안일어난다고 보면 될거같다.
+ * 다만 CD 자체를 줄일 수 없을까?
+ */
