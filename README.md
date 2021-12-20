@@ -5,8 +5,8 @@
     LIST TO DO TEST
     ✅ Directory Structure
     ✅ 일반적인 TODO Flow
-    - Change Dection & OnPush & Input 입력 관련해 파악
-    - 서비스 로직 분리
+    ✅ Change Dection & OnPush & Input 입력 관계를 파악
+    ✅ 서비스 로직 분리
     - NgRx를 이용한 상태관리
     - 라이프 사이클 체킹
 
